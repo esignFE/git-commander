@@ -1,0 +1,17 @@
+{
+  "name": "commander-line",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "colors": "^1.3.3",
+    "commitizen-promise": "^3.2.0",
+    "inquirer": "^6.5.0",
+    "shelljs": "^0.8.3"
+  },
+  "files": [
+    "packages"
+  ],
+  "devDependencies": {
+    "lerna": "^3.16.4"
+  }
+}
