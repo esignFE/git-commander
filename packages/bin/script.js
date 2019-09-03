@@ -85,13 +85,14 @@ async function nextInquirer(npmVersion, versionObj) {
       .npmVersion
     let ary1 = item.curVersion.split('.')
     let ary2 = curNpmVersion.split('.')
+
     let disabled =
-      ary1[0] - 0 > ary2[0] - 0
-        ? false
-        : ary1[1] - 0 > ary2[1] - 0
-        ? false
-        : ary1[2] - 0 > ary2[2] - 0
-        ? false
+      ary1[0] - 0 >= ary2[0] - 0
+        ? ary1[1] - 0 >= ary2[1] - 0
+          ? ary1[2] - 0 > ary2[2] - 0
+            ? false
+            : true
+          : true
         : true
 
     let str = `${item.name}  当前版本:${
