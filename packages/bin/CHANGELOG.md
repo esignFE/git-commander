@@ -1,3 +1,8 @@
+## command-bin v0.0.24 (2019-11-12)
+
+### Bug Fixes
+* **package.json:**  依赖更新 ([7970354](http://git.timevale.cn:8081/front-common/esign-ui/commit/7970354))
+
 ## command-bin v0.0.23 (2019-09-03)
 
 ### Bug Fixes
