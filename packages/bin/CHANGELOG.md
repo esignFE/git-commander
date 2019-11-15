@@ -1,3 +1,8 @@
+## command-bin v0.1.0 (2019-11-15)
+
+### Features
+* **script.js:**  版本号校验规则修改 ([da061b0](http://git.timevale.cn:8081/front-common/esign-ui/commit/da061b0))
+
 ## command-bin v0.1.24 (2019-11-15)
 
 ### Features
