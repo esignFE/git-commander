@@ -1,3 +1,8 @@
+## command-bin v0.1.1 (2019-11-15)
+
+### Bug Fixes
+* **package.json:**  删除console.log ([8dc42ef](http://git.timevale.cn:8081/front-common/esign-ui/commit/8dc42ef))
+
 ## command-bin v0.1.0 (2019-11-15)
 
 ### Features
