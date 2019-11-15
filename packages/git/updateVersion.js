@@ -66,7 +66,7 @@ async function parseCommit(commitAry) {
         }
         matchAry = Array.from(new Set(matchAry.map(item => item.slice(5))))
         let isBreakingChange = /BREAKING CHANGE(.|\n)*diff \-\-git/.test(data)
-        let isFeat = /.*feat\(.*\):.*diff \-\-git/.test(data)
+        let isFeat = /(.|\n)*feat\(.*\):(.|\n)*diff \-\-git/.test(data)
         if (matchAry && matchAry.length > 0) {
           for (let matcher of matchAry) {
             let package = matcher.split('/')[2]
@@ -156,14 +156,12 @@ async function setVersion(versionObj) {
           type: 'confirm',
           name: 'isUpdataVersion',
           message: `即将更新 ${curPackageJson.name} 的版本号,更新模式:${
-            versionObj[package].version
-          }(${
             versionObj[package].version === 'major'
               ? '主版本号(major)'
               : versionObj[package].version === 'patch'
               ? '修订号(patch)'
               : '次版本号(minor)'
-          }),是否需要修改？`,
+          },是否需要修改？`,
           default: false,
           when: function (val) {
             return val['confirmUpdata']
