@@ -7,18 +7,23 @@ const publish = require('command-publish/publish.js')
 const git = require('command-git/git.js')
 const findPackages = require('command-common/findPackages.js')
 const progressBar = require('command-common/progressBar.js')
+
 function updateProgressBar(pb, num, total) {
   if (num <= total) {
-    pb.render({ completed: num, total: total })
+    pb.render({
+      completed: num,
+      total: total
+    })
   }
 }
 
-const branch = shell.exec(`git branch`, { silent: true })
+const branch = shell.exec(`git branch`, {
+  silent: true
+})
 console.log(`当前分支: ${branch.toString().slice(2)}`.green)
 
 inquirer
-  .prompt([
-    {
+  .prompt([{
       type: 'checkbox',
       name: 'choice operate',
       message: '请选择需要进行的操作?',
@@ -58,11 +63,15 @@ inquirer
         npmPromiseAry.push(
           new Promise((resolve, reject) => {
             shell.exec(
-              `npm view ${cur.name}  versions --json`,
-              { silent: true },
+              `npm view ${cur.name}  versions --json`, {
+                silent: true
+              },
               (err, data) => {
                 let version = JSON.parse(data)
-                npmVersion.push({ name: cur.name, npmVersion: version.pop() })
+                npmVersion.push({
+                  name: cur.name,
+                  npmVersion: version.pop()
+                })
                 resolve(updateProgressBar(pb, ++num, total))
               }
             )
@@ -85,15 +94,8 @@ async function nextInquirer(npmVersion, versionObj) {
       .npmVersion
     let ary1 = item.curVersion.split('.')
     let ary2 = curNpmVersion.split('.')
+    let disabled = ary1[0] - 0 >= ary2[0] - 0 ? (ary1[1] - 0 >= ary2[1] - 0 ? (ary1[1] - 0 > ary2[1] - 0 ? true : (ary1[2] - 0 > ary2[2] - 0 ? true : false)) : false) : false
 
-    let disabled =
-      ary1[0] - 0 >= ary2[0] - 0
-        ? ary1[1] - 0 >= ary2[1] - 0
-          ? ary1[2] - 0 > ary2[2] - 0
-            ? false
-            : true
-          : true
-        : true
 
     let str = `${item.name}  当前版本:${
       item.curVersion
@@ -152,19 +154,16 @@ async function nextInquirer(npmVersion, versionObj) {
     })
 
   inquirer
-    .prompt([
-      {
-        type: 'checkbox',
-        name: 'choice publish',
-        message: '请选择需要发布的包?',
-        choices: publishPackages,
-        filter: function(val) {
-          return val.indexOf('All') > -1 || val.length === packages.length
-            ? ['All']
-            : val
-        }
+    .prompt([{
+      type: 'checkbox',
+      name: 'choice publish',
+      message: '请选择需要发布的包?',
+      choices: publishPackages,
+      filter: function (val) {
+        return val.indexOf('All') > -1 || val.length === packages.length ? ['All'] :
+          val
       }
-    ])
+    }])
     .then(async answers => {
       if (answers['choice publish'] && answers['choice publish'].length > 0) {
         if (answers['choice publish'].indexOf('All') !== -1) {
