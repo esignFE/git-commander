@@ -2,6 +2,7 @@
 
 ### Features
 * **updateVersion.js:**  修改版本号更新规则 ([2b71b9b](http://git.timevale.cn:8081/front-common/esign-ui/commit/2b71b9b))
+* **updateVersion.js:**  版本号校验规则修改 ([f83d78b](http://git.timevale.cn:8081/front-common/esign-ui/commit/f83d78b))
 
 ## command-git v0.0.13 (2019-11-12)
 
