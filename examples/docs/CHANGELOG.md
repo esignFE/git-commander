@@ -1,3 +1,15 @@
+## command-publish v0.0.10 (2019-11-15)
+
+### Bug Fixes
+* **publish.js:**  删除多余console.log ([fbfc0b7](http://git.timevale.cn:8081/front-common/esign-ui/commit/fbfc0b7))
+
+
+## command-bin v0.1.1 (2019-11-15)
+
+### Bug Fixes
+* **package.json:**  删除console.log ([8dc42ef](http://git.timevale.cn:8081/front-common/esign-ui/commit/8dc42ef))
+
+
 ## command-bin v0.1.0 (2019-11-15)
 
 ### Features
