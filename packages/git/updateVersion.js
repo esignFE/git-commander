@@ -9,13 +9,18 @@ const progressBar = require('command-common/progressBar.js')
 
 function updateProgressBar(pb, num, total) {
   if (num <= total) {
-    pb.render({ completed: num, total: total })
+    pb.render({
+      completed: num,
+      total: total
+    })
   }
 }
 
 async function findNoPushCommit() {
   let commitAry = await new Promise((resolve, reject) => {
-    exec('git cherry -v', { silent: true }, (err, data) => {
+    exec('git cherry -v', {
+      silent: true
+    }, (err, data) => {
       if (err) throw err
       resolve(data)
     })
@@ -49,7 +54,9 @@ async function parseCommit(commitAry) {
 
   function parseSubTask(item) {
     return new Promise(async (resolve, reject) => {
-      exec(`git show ${item.commitId}`, { silent: true }, async (err, data) => {
+      exec(`git show ${item.commitId}`, {
+        silent: true
+      }, async (err, data) => {
         if (err) throw err
         let matchAry = data.match(
           /(\+\+\+|\-\-\-) (a|b)(\/packages\/(.*){1})\/.*/g
@@ -59,6 +66,7 @@ async function parseCommit(commitAry) {
         }
         matchAry = Array.from(new Set(matchAry.map(item => item.slice(5))))
         let isBreakingChange = /BREAKING CHANGE(.|\n)*diff \-\-git/.test(data)
+        let isFeat = /.*feat\(.*\):.*diff \-\-git/.test(data)
         if (matchAry && matchAry.length > 0) {
           for (let matcher of matchAry) {
             let package = matcher.split('/')[2]
@@ -88,27 +96,27 @@ async function parseCommit(commitAry) {
             let commitMessage = data.split('\n')[4].trim()
             let shortCommitId = await new Promise((resolve, reject) => {
               exec(
-                `git rev-parse --short ${item.commitId}`,
-                { silent: true },
-                function(err, data) {
+                `git rev-parse --short ${item.commitId}`, {
+                  silent: true
+                },
+                function (err, data) {
                   resolve(data.slice(0, data.length - 1))
                 }
               )
             })
             let commitType = commitMessage.split(':')[0]
             commitType =
-              commitType.indexOf('(') > -1
-                ? commitType.slice(0, commitType.indexOf('('))
-                : commitType
-            let BreakingChangeMessage = isBreakingChange
-              ? data
-                  .split('\n')[6]
-                  .split('BREAKING CHANGE:')[1]
-                  .trim()
-              : ''
-            versionObj[package].commitInfo = versionObj[package].commitInfo
-              ? versionObj[package].commitInfo
-              : []
+              commitType.indexOf('(') > -1 ?
+              commitType.slice(0, commitType.indexOf('(')) :
+              commitType
+            let BreakingChangeMessage = isBreakingChange ?
+              data
+              .split('\n')[6]
+              .split('BREAKING CHANGE:')[1]
+              .trim() :
+              ''
+            versionObj[package].commitInfo = versionObj[package].commitInfo ?
+              versionObj[package].commitInfo : []
 
             commitMessage = commitMessage.slice(commitMessage.indexOf(':') + 1)
             versionObj[package].commitInfo.push({
@@ -118,13 +126,9 @@ async function parseCommit(commitAry) {
               commitType,
               BreakingChangeMessage
             })
-            versionObj[package].version = versionObj[package].version
-              ? isBreakingChange
-                ? 'major'
-                : versionObj[package].version
-              : isBreakingChange
-              ? 'major'
-              : 'patch'
+            versionObj[package].version = versionObj[package].version ?
+              (isBreakingChange ? 'major' : (isFeat ? 'minor' : versionObj[package].version)) :
+              (isBreakingChange ? 'major' : (isFeat ? 'minor' : 'patch'))
           }
         }
         resolve(updateProgressBar(pb, ++num, total))
@@ -142,8 +146,7 @@ async function setVersion(versionObj) {
     let curPackageJson = packageJsons.find(item => item.folderName === package)
     versionObj[package].name = curPackageJson.name
     await inquirer
-      .prompt([
-        {
+      .prompt([{
           type: 'confirm',
           name: 'confirmUpdata',
           message: `未 push 的 commit 记录中, ${curPackageJson.name} 有修改记录,当前的版本号为 ${curPackageJson.curVersion},是否更新版本号？`,
@@ -156,13 +159,13 @@ async function setVersion(versionObj) {
             versionObj[package].version
           }(${
             versionObj[package].version === 'major'
-              ? '大版本'
+              ? '主版本号(major)'
               : versionObj[package].version === 'patch'
-              ? '小版本'
-              : '中版本'
+              ? '修订号(patch)'
+              : '次版本号(minor)'
           }),是否需要修改？`,
           default: false,
-          when: function(val) {
+          when: function (val) {
             return val['confirmUpdata']
           }
         }
@@ -182,27 +185,29 @@ async function setVersion(versionObj) {
           exec(
             `npm version ${
               versionNum ? versionNum : versionObj[package].version
-            }`,
-            { silent: true, cwd: `./${versionObj[package].packagePath}` },
-            async function(err, data) {
+            }`, {
+              silent: true,
+              cwd: `./${versionObj[package].packagePath}`
+            },
+            async function (err, data) {
               curPackageJson = findPackages(package)
               console.log(
                 `${package} 版本号已修改为 ${curPackageJson.curVersion}`.green
               )
               versionObj[package].version = curPackageJson.curVersion //修改了记录的版本号
               exec(
-                `git add ./${versionObj[package].packagePath}/package.json`,
-                {
+                `git add ./${versionObj[package].packagePath}/package.json`, {
                   silent: true
                 }
               )
               exec(
-                `git add ./${versionObj[package].packagePath}/package-lock.json`,
-                {
+                `git add ./${versionObj[package].packagePath}/package-lock.json`, {
                   silent: true
                 }
               )
-              exec(`git commit -m ${package}_${data}`, { silent: true })
+              exec(`git commit -m ${package}_${data}`, {
+                silent: true
+              })
               let commitId = await getCommitInfo()
               commitInfo.push({
                 package,
@@ -216,12 +221,17 @@ async function setVersion(versionObj) {
       })
   }
 
-  return { commitInfo, versionObj }
+  return {
+    commitInfo,
+    versionObj
+  }
 }
 
 async function getCommitInfo() {
   return new Promise((resolve, reject) => {
-    exec(`git cherry -v`, { silent: true }, function(err, data) {
+    exec(`git cherry -v`, {
+      silent: true
+    }, function (err, data) {
       if (err) throw err
       data = data.split('\n')
       if (data.length === 0) throw '打tag时,cherry -v获取不到commit记录'
@@ -233,13 +243,11 @@ async function getCommitInfo() {
 
 async function inputVersion() {
   return await inquirer
-    .prompt([
-      {
-        type: 'input',
-        name: 'inputVersion',
-        message: '请遵循 ```semVer语义``` 输入版本号:'
-      }
-    ])
+    .prompt([{
+      type: 'input',
+      name: 'inputVersion',
+      message: '请遵循 ```semVer语义``` 输入版本号:'
+    }])
     .then(answers => {
       if (
         !/^(?!0\.0\.0)(\d|[1-9]\d+)\.(\d|[1-9]\d+)\.(\d|[1-9]\d+)$/.test(
@@ -254,8 +262,7 @@ async function inputVersion() {
 
 async function choiceChangeLog() {
   return await inquirer
-    .prompt([
-      {
+    .prompt([{
         type: 'confirm',
         name: 'createChangeLog',
         message: '是否生成changelog',
@@ -264,10 +271,9 @@ async function choiceChangeLog() {
       {
         type: 'confirm',
         name: 'createChangeLogOption',
-        message:
-          '是否只生成上次commit之后的变动,否则生成所有commit的Change log',
+        message: '是否只生成上次commit之后的变动,否则生成所有commit的Change log',
         default: true,
-        when: function(val) {
+        when: function (val) {
           return val['createChangeLog']
         }
       }
@@ -285,12 +291,13 @@ async function choiceChangeLog() {
 async function gitTag(commitInfo) {
   for (let commit of commitInfo) {
     exec(
-      `git tag -a -m '' ${commit.package}_v${commit.curVersion} ${commit.commitId}`,
-      { silent: true }
+      `git tag -a -m '' ${commit.package}_v${commit.curVersion} ${commit.commitId}`, {
+        silent: true
+      }
     )
 
     await new Promise((resolve, reject) => {
-      exec(`git push origin ${commit.package}_v${commit.curVersion}`, function(
+      exec(`git push origin ${commit.package}_v${commit.curVersion}`, function (
         err,
         data
       ) {
@@ -324,8 +331,9 @@ module.exports = async function updateVersion() {
         await gitAdd(`./${versionObj[package].packagePath}/CHANGELOG.md`)
         await new Promise((resolve, reject) => {
           exec(
-            `git commit -m  ${package}_CHANGELOG.md`,
-            { silent: true },
+            `git commit -m  ${package}_CHANGELOG.md`, {
+              silent: true
+            },
             () => {
               resolve()
             }
@@ -336,8 +344,9 @@ module.exports = async function updateVersion() {
       await gitAdd(`./examples/docs/CHANGELOG.md`)
       await new Promise((resolve, reject) => {
         exec(
-          `git commit -m  "docs(root): CHANGELOG.md"`,
-          { silent: true },
+          `git commit -m  "docs(root): CHANGELOG.md"`, {
+            silent: true
+          },
           () => {
             resolve()
           }
