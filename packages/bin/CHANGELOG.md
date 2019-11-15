@@ -1,3 +1,9 @@
+## command-bin v0.1.24 (2019-11-15)
+
+### Features
+* **package-lock.json:**  版本号更新规则修改 ([e077edf](http://git.timevale.cn:8081/front-common/esign-ui/commit/e077edf))
+* **package.json:**  版本号更新规则修改 ([e077edf](http://git.timevale.cn:8081/front-common/esign-ui/commit/e077edf))
+
 ## command-bin v0.0.24 (2019-11-12)
 
 ### Bug Fixes
