@@ -2,7 +2,7 @@
 
 ### Features
 * **script.js:**  版本号校验规则修改 ([da061b0](http://git.timevale.cn:8081/front-common/esign-ui/commit/da061b0))
-
+* **script.js:**  可发布package校验规则修正 ([6fb9c42](http://git.timevale.cn:8081/front-common/esign-ui/commit/6fb9c42))
 
 ## command-git v0.1.0 (2019-11-15)
 
