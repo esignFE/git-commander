@@ -1,15 +1,14 @@
-## command-bin v0.1.24 (2019-11-15)
+## command-bin v0.1.0 (2019-11-15)
 
 ### Features
-* **package-lock.json:**  版本号更新规则修改 ([e077edf](http://git.timevale.cn:8081/front-common/esign-ui/commit/e077edf))
-* **package.json:**  版本号更新规则修改 ([e077edf](http://git.timevale.cn:8081/front-common/esign-ui/commit/e077edf))
+* **script.js:**  版本号校验规则修改 ([da061b0](http://git.timevale.cn:8081/front-common/esign-ui/commit/da061b0))
 
 
 ## command-git v0.1.0 (2019-11-15)
 
 ### Features
 * **updateVersion.js:**  修改版本号更新规则 ([2b71b9b](http://git.timevale.cn:8081/front-common/esign-ui/commit/2b71b9b))
-
+* **updateVersion.js:**  版本号校验规则修改 ([f83d78b](http://git.timevale.cn:8081/front-common/esign-ui/commit/f83d78b))
 
 ## command-bin v0.0.24 (2019-11-12)
 
