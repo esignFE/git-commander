@@ -47,25 +47,24 @@ function createContent(package, packageInfo, packageJsonPath) {
   let classObj = {};
 
   let fileContent;
-  if (packageJsonPath)
+  if (packageJsonPath) {
     fileContent = fs.readFileSync(`${packageJsonPath}`).toString();
-  else
+  } else {
     fileContent = fs
       .readFileSync(`./${packageInfo.packagePath}/CHANGELOG.md`)
       .toString();
-
+  }
   let hasVersion = false;
   hasVersion = fileContent.indexOf(
     `## ${packageInfo.name} v${packageInfo.version}`
   );
-
   if (hasVersion > -1) {
     //如果已存在相同版本(适用于同一个版本未发布的情况下,多次commit)
     let startIndex, endIndex, fileContentAry;
     fileContentAry = fileContent.split("\n");
     startIndex = fileContentAry.findIndex(
       item =>
-        item.indexOf(`## ${packageInfo.name} v${packageInfo.version}`) > -1
+      item.indexOf(`## ${packageInfo.name} v${packageInfo.version}`) > -1
     );
     endIndex = fileContentAry.findIndex((item, index) => {
       if (index <= startIndex) return false;
@@ -123,17 +122,21 @@ function createContent(package, packageInfo, packageJsonPath) {
       if (classObj[`${className}`].length > 1) {
         content =
           content +
-          (classObj[`${className}`].length > 0
-            ? `\n${classAryHash[className]}\n${classObj[`${className}`]}\n`
-            : "");
+          (classObj[`${className}`].length > 0 ?
+            `\n${classAryHash[className]}\n${classObj[`${className}`]}\n` :
+            "");
       }
     });
-    fileContentAry = fileContentAry
-      .slice(startIndex, startIndex + 1)
+    fileContentAry =
+      fileContentAry.slice(0, startIndex)
+      .concat(fileContentAry.slice(startIndex, startIndex + 1))
       .concat([content])
       .concat(fileContentAry.slice(endIndex + 1));
     fileContent = fileContentAry.join("\n");
-    return { fileContent, hasVersion: true };
+    return {
+      fileContent,
+      hasVersion: true
+    };
   } else {
     classAry.forEach(className => {
       classObj[`${className}`] = [];
@@ -154,12 +157,16 @@ function createContent(package, packageInfo, packageJsonPath) {
       classObj[`${className}`] = classObj[`${className}`].join("\n");
       content =
         content +
-        (classObj[`${className}`].length > 0
-          ? `\n\n${classAryHash[className]}\n${classObj[`${className}`]}`
-          : "");
+        (classObj[`${className}`].length > 0 ?
+          `\n\n${classAryHash[className]}\n${classObj[`${className}`]}` :
+          "");
     });
     content = content + "\n\n";
-    return { content, fileContent, hasVersion: false };
+    return {
+      content,
+      fileContent,
+      hasVersion: false
+    };
   }
 }
 
