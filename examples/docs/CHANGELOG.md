@@ -1,3 +1,16 @@
+## command-git v0.1.2 (2019-12-02)
+
+### Bug Fixes
+* **write_ChangeLog.js:**  changelog生成bug修复 ([7f03a7a](http://git.timevale.cn:8081/front-common/esign-ui/commit/7f03a7a))
+
+
+## command-bin v0.1.3 (2019-12-02)
+
+### Bug Fixes
+* **CHANGELOG.md:**  changelog生成bug修复 ([7f03a7a](http://git.timevale.cn:8081/front-common/esign-ui/commit/7f03a7a))
+* **package.json:**  changelog生成bug修复 ([7f03a7a](http://git.timevale.cn:8081/front-common/esign-ui/commit/7f03a7a))
+
+
 ## command-git v0.1.1 (2019-12-02)
 
 ### Bug Fixes
