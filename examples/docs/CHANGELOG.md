@@ -1,3 +1,16 @@
+## command-git v0.1.1 (2019-12-02)
+
+### Bug Fixes
+* **package.json:**  修复在存在相同版本的情况下，生成changelog丢失了部分数据 ([ded88e9](http://git.timevale.cn:8081/front-common/esign-ui/commit/ded88e9))
+* **write_ChangeLog.js:**  修复在存在相同版本的情况下，生成changelog丢失了部分数据 ([ded88e9](http://git.timevale.cn:8081/front-common/esign-ui/commit/ded88e9))
+
+
+## command-bin v0.1.2 (2019-12-02)
+
+### Bug Fixes
+* **package.json:**  修复存在相同版本的情况下，changelog生成丢失了部分数据 ([074d753](http://git.timevale.cn:8081/front-common/esign-ui/commit/074d753))
+* **script.js:**  修复存在相同版本的情况下，changelog生成丢失了部分数据 ([074d753](http://git.timevale.cn:8081/front-common/esign-ui/commit/074d753))
+
 ## command-publish v0.0.10 (2019-11-15)
 
 ### Bug Fixes
