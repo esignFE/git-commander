@@ -1,15 +1,12 @@
 {
   "name": "command-bin",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "main": "./script.js",
   "bin": {
     "commander": "script.js"
   },
   "dependencies": {
     "colors": "^1.3.3",
-    "command-git": "^0.1.0",
-    "command-common": "^0.0.5",
-    "command-publish": "^0.0.10",
     "commitizen-promise": "^3.2.0",
     "inquirer": "^6.5.0",
     "shelljs": "^0.8.3",

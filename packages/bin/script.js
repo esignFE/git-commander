@@ -8,6 +8,7 @@ const git = require('command-git/git.js')
 const findPackages = require('command-common/findPackages.js')
 const progressBar = require('command-common/progressBar.js')
 
+
 function updateProgressBar(pb, num, total) {
   if (num <= total) {
     pb.render({
@@ -20,7 +21,7 @@ function updateProgressBar(pb, num, total) {
 const branch = shell.exec(`git branch`, {
   silent: true
 })
-console.log(`当前分支: ${branch.toString().slice(2)}`.green)
+console.log(`当前分支: \n  ${branch.toString().slice(2)}`.green)
 
 inquirer
   .prompt([{
