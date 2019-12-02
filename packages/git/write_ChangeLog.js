@@ -56,7 +56,7 @@ function createContent(package, packageInfo, packageJsonPath) {
   }
   let hasVersion = false;
   hasVersion = fileContent.indexOf(
-    `## ${packageInfo.name} v${packageInfo.version}`
+    `## ${packageInfo.name} v${packageInfo.version} (20`
   );
   if (hasVersion > -1) {
     //如果已存在相同版本(适用于同一个版本未发布的情况下,多次commit)

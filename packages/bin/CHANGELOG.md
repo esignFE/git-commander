@@ -1,3 +1,9 @@
+## command-bin v0.1.2 (2019-11-15)
+
+### Bug Fixes
+* **package.json:**  修复存在相同版本的情况下，changelog生成丢失了部分数据 ([074d753](http://git.timevale.cn:8081/front-common/esign-ui/commit/074d753))
+* **script.js:**  修复存在相同版本的情况下，changelog生成丢失了部分数据 ([074d753](http://git.timevale.cn:8081/front-common/esign-ui/commit/074d753))
+
 ## command-bin v0.1.1 (2019-11-15)
 
 ### Bug Fixes
@@ -14,10 +20,6 @@
 ### Features
 * **package-lock.json:**  版本号更新规则修改 ([e077edf](http://git.timevale.cn:8081/front-common/esign-ui/commit/e077edf))
 * **package.json:**  版本号更新规则修改 ([e077edf](http://git.timevale.cn:8081/front-common/esign-ui/commit/e077edf))
-
-### Bug Fixes
-* **package.json:**  修复存在相同版本的情况下，changelog生成丢失了部分数据 ([074d753](http://git.timevale.cn:8081/front-common/esign-ui/commit/074d753))
-* **script.js:**  修复存在相同版本的情况下，changelog生成丢失了部分数据 ([074d753](http://git.timevale.cn:8081/front-common/esign-ui/commit/074d753))
 
 ## command-bin v0.0.24 (2019-11-12)
 
