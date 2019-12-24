@@ -1,3 +1,8 @@
+## command-bin v0.1.5 (2019-12-24)
+
+### Bug Fixes
+* **script.js:**  发布时的校验规则修改 ([0297139](http://git.timevale.cn:8081/front-common/esign-ui/commit/0297139))
+
 ## command-bin v0.1.4 (2019-12-24)
 
 ### Bug Fixes
