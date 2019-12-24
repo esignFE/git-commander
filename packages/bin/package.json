@@ -6,7 +6,7 @@
     "commander": "script.js"
   },
   "dependencies": {
-    "command-git": "^0.1.2",
+    "command-git": "^0.1.3",
     "command-common": "^0.0.5",
     "command-publish": "^0.0.10",
     "colors": "^1.3.3",
