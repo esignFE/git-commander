@@ -1,3 +1,8 @@
+## command-git v0.1.3 (2019-12-24)
+
+### Bug Fixes
+* **updateVersion.js:**  放开版本号自定义校验 ([4cf5d9f](http://git.timevale.cn:8081/front-common/esign-ui/commit/4cf5d9f))
+
 ## command-git v0.1.2 (2019-12-02)
 
 ### Bug Fixes
