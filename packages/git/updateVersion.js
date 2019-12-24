@@ -248,7 +248,7 @@ async function inputVersion() {
     }])
     .then(answers => {
       if (
-        !/^(?!0\.0\.0)(\d|[1-9]\d+)\.(\d|[1-9]\d+)\.(\d|[1-9]\d+)$/.test(
+        !/^(?!0\.0\.0)(\d|[1-9]\d+)\.(\d|[1-9]\d+)\.(\d|[1-9]\d+)/.test(
           answers['inputVersion']
         )
       ) {
