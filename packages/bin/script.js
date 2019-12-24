@@ -93,8 +93,8 @@ async function nextInquirer(npmVersion, versionObj) {
   packages.forEach(item => {
     let curNpmVersion = npmVersion.find(obj => obj.name === item.name)
       .npmVersion
-    let ary1 = item.curVersion.split('.')
-    let ary2 = curNpmVersion.split('.')
+    let ary1 = item.curVersion.split('.').map(item => /^[0-9]+/.exec(item)[0])
+    let ary2 = curNpmVersion.split('.').map(item => /^[0-9]+/.exec(item)[0])
     let disabled = ary1[0] - 0 >= ary2[0] - 0 ? (ary1[1] - 0 >= ary2[1] - 0 ? (ary1[1] - 0 > ary2[1] - 0 ? false : (ary1[2] - 0 > ary2[2] - 0 ? false : true)) : true) : true
 
 
