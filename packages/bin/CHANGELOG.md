@@ -1,3 +1,8 @@
+## command-bin v0.1.4 (2019-12-24)
+
+### Bug Fixes
+* **package.json:**  放开版本号校验 ([7d6d549](http://git.timevale.cn:8081/front-common/esign-ui/commit/7d6d549))
+
 ## command-bin v0.1.3 (2019-12-02)
 
 ### Bug Fixes
