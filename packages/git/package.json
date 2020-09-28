@@ -1,8 +1,8 @@
 {
   "name": "command-git",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "dependencies": {
-    "command-bin": "0.1.10"
+    "command-bin": "0.1.11"
   },
   "author": "youping",
   "license": "MIT"
