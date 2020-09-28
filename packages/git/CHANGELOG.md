@@ -6,13 +6,13 @@
 ## command-git v0.1.2 (2019-12-02)
 
 ### Bug Fixes
-* **write_ChangeLog.js:**  changelog生成bug修复 ([7f03a7a](http://git.timevale.cn:8081/front-common/esign-ui/commit/7f03a7a))
+* **writeChangeLog.js:**  changelog生成bug修复 ([7f03a7a](http://git.timevale.cn:8081/front-common/esign-ui/commit/7f03a7a))
 
 ## command-git v0.1.1 (2019-12-02)
 
 ### Bug Fixes
 * **package.json:**  修复在存在相同版本的情况下，生成changelog丢失了部分数据 ([ded88e9](http://git.timevale.cn:8081/front-common/esign-ui/commit/ded88e9))
-* **write_ChangeLog.js:**  修复在存在相同版本的情况下，生成changelog丢失了部分数据 ([ded88e9](http://git.timevale.cn:8081/front-common/esign-ui/commit/ded88e9))
+* **writeChangeLog.js:**  修复在存在相同版本的情况下，生成changelog丢失了部分数据 ([ded88e9](http://git.timevale.cn:8081/front-common/esign-ui/commit/ded88e9))
 
 ## command-git v0.1.0 (2019-11-15)
 
@@ -23,5 +23,5 @@
 ## command-git v0.0.13 (2019-11-12)
 
 ### Bug Fixes
-* **write_ChangeLog.js:**  生成changlog时,feat修改应该使用会 ([099ca2d](http://git.timevale.cn:8081/front-common/esign-ui/commit/099ca2d))
+* **writeChangeLog.js:**  生成changlog时,feat修改应该使用会 ([099ca2d](http://git.timevale.cn:8081/front-common/esign-ui/commit/099ca2d))
 
