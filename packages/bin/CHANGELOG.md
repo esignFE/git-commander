@@ -1,3 +1,8 @@
+## command-bin v0.1.11 (2020-09-28)
+
+### Bug Fixes
+* **script.js:**  删除多余console.log ([af7e019](asdasd/commit/af7e019))
+
 ## command-bin v0.1.10 (2020-09-28)
 
 ### Bug Fixes
