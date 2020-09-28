@@ -54,6 +54,19 @@ async function nextInquirer(npmVersion, versionObj) {
           await publish(choiceAry, packages)
         }
       }
+      const { afterPublishHook } = getConf().get()
+        if (typeof afterPublishHook === 'string' && afterPublishHook.trim().length > 0) {
+          console.log(
+            `\n执行afterPublishHook: ${afterPublishHook}, 当前路径: ${shell.pwd()}\n`.red
+          )
+          shell.exec(afterPublishHook, {
+            cwd: shell.pwd().toString(),
+          })
+          console.log(
+            `\nafterPublishHook执行结束: ${afterPublishHook}, 当前路径: ${shell.pwd()}\n`
+              .green
+          )
+        }
     })
 }
 
@@ -99,6 +112,19 @@ init().then((status) => {
       }
 
       if (answers['choice operate'].includes('npm publish')) {
+        const { beforePublishHook } = getConf().get()
+        if (typeof beforePublishHook === 'string' && beforePublishHook.trim().length > 0) {
+          console.log(
+            `\n执行beforePublishHook: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`.red
+          )
+          shell.exec(beforePublishHook, {
+            cwd: shell.pwd().toString(),
+          })
+          console.log(
+            `\nbeforePublishHook执行结束: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`
+              .green
+          )
+        }
         let npmVersion = []
         let curPackages = findPackages()
         let num = 0
