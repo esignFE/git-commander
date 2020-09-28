@@ -1,3 +1,8 @@
+## command-git v0.1.8 (2020-09-28)
+
+### Bug Fixes
+* **updataDependenciesVersion.js:**  添加变量用于生成提示 ([a4fd643](asdasd/commit/a4fd643))
+
 ## command-git v0.1.7 (2020-09-28)
 
 ### Bug Fixes
