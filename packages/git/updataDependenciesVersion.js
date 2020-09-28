@@ -49,7 +49,6 @@ function setVersionByGitTask(path) {
     data.replace('v', '').replace('\n', '')
   )
 }
-
 async function handle(versionChangeInfo) {
   return new Promise(async (resolve, reject) => {
     const gitPushTaskMap = {}
@@ -61,6 +60,8 @@ async function handle(versionChangeInfo) {
     } of versionChangeInfo) {
       gitPushTaskMap[packagePath] = gitPushTaskMap[packagePath] || {}
       gitPushTaskMap[packagePath] = {
+        packagePath,
+        packageName,
         fileList: ['package.json', 'package-lock.json'],
         gitAddList: [
           `${packagePath}/package.json`,
@@ -83,19 +84,26 @@ async function handle(versionChangeInfo) {
         if (package === folderName) continue
         if (!dependencies && !peerDependencies) continue
         if (
-          dependencies[packageName] &&
-          !new RegExp(`^([^0-9]?)${curVersion}$`).test(
-            dependencies[packageName]
-          )
+          (dependencies && dependencies[packageName] &&
+            !new RegExp(`^([^0-9]?)${curVersion}$`).test(
+              dependencies[packageName]
+            )) ||
+          (peerDependencies && peerDependencies[packageName] &&
+            !new RegExp(`^([^0-9]?)${curVersion}$`).test(
+              peerDependencies[packageName]
+            ))
         ) {
           const packageJson = getPackageJson(path)
-          packageJson['dependencies'][packageName] = curVersion
+          if (dependencies && dependencies[packageName]) packageJson['dependencies'][packageName] = curVersion
+          if (peerDependencies && peerDependencies[packageName]) packageJson['peerDependencies'][packageName] = curVersion
           fs.writeFileSync(
             `${path}/package.json`,
             JSON.stringify(packageJson, null, 2)
           )
           gitPushTaskMap[path] = gitPushTaskMap[path] || {}
           gitPushTaskMap[path] = {
+            packagePath: gitPushTaskMap[path].packagePath,
+            packageName: gitPushTaskMap[path].packageName,
             fileList: gitPushTaskMap[path].fileList || ['package.json'],
             gitAddList: gitPushTaskMap[path].gitAddList || [
               `${path}/package.json`,
@@ -132,6 +140,8 @@ async function handle(versionChangeInfo) {
     const keys = Object.keys(gitPushTaskMap)
     for (const key of keys) {
       const {
+        packagePath,
+        packageName,
         gitAddList,
         depPackageNames,
         commitMessagePrefix,
@@ -144,6 +154,10 @@ async function handle(versionChangeInfo) {
           depPackageNames ? '  ' + depPackageNames : ''
         }${depPackageNames ? commitMessageSuffix : ''}"`
       )
+      if (depPackageNames) {
+        const packageJson = getPackageJson(packagePath)
+        console.log(`*** 由于以下模块更新：（ ${depPackageNames} ）， ${packageName}已修改版本至： ${packageJson.version} ***`.green)
+      }
       versionChangeInfo.forEach((item, index) => {
         if (item.path === key) item = Object.assign(item, gitPushTaskMap[key])
       })
