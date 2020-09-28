@@ -18,9 +18,7 @@ async function nextInquirer(npmVersion, versionObj) {
       .npmVersion
     let str = `${item.name}  当前版本:${
       item.curVersion
-    }   NPM线上最新版本:${curNpmVersion}   ${
-      disabled ? '请确认是否更新了package.json文件中的版本号!' : ''
-    }`
+    }   NPM线上最新版本:${curNpmVersion}，请确认已经更新了package.json文件中的版本号`
     publishPackages.push({
       name: str,
       value: item.name,
@@ -55,7 +53,7 @@ async function nextInquirer(npmVersion, versionObj) {
         }
       }
       const { afterPublishHook } = getConf().get()
-        if (typeof afterPublishHook === 'string' && afterPublishHook.trim().length > 0) {
+        if (typeof afterPublishHook === 'string' && afterPublishHook.trim().length > 0 && afterPublishHook !== "''") {
           console.log(
             `\n执行afterPublishHook: ${afterPublishHook}, 当前路径: ${shell.pwd()}\n`.red
           )
@@ -83,7 +81,7 @@ init().then((status) => {
   if (!status) return
 
   const { beforeRunHook } = getConf().get()
-  if (typeof beforeRunHook === 'string' && beforeRunHook.trim().length > 0) {
+  if (typeof beforeRunHook === 'string' && beforeRunHook.trim().length > 0 && beforeRunHook !== "''") {
     console.log(
       `\n执行beforeRunHook: ${beforeRunHook}, 当前路径: ${shell.pwd()}\n`.red
     )
@@ -113,7 +111,8 @@ init().then((status) => {
 
       if (answers['choice operate'].includes('npm publish')) {
         const { beforePublishHook } = getConf().get()
-        if (typeof beforePublishHook === 'string' && beforePublishHook.trim().length > 0) {
+        console.log(beforePublishHook.trim().length)
+        if (typeof beforePublishHook === 'string' && beforePublishHook.trim().length > 0 && beforePublishHook !== "''") {
           console.log(
             `\n执行beforePublishHook: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`.red
           )
