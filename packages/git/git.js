@@ -74,7 +74,12 @@ async function choiceCommit(diffChoices, isNext) {
         console.log('commit 执行完毕...'.green)
         return []
       } else {
-        for (let package of packages) await addPackage(package.slice(3))
+        for (let package of packages) {
+          if (package.includes('重命名')) {
+            await addPackage(package.split(' -> ')[1])
+            await addPackage(package.split(' -> ')[0].slice(4))
+          } else await addPackage(package.slice(3))
+        }
         await gitCommit()
       }
 

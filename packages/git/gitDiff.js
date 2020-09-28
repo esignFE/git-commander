@@ -8,13 +8,15 @@ const getArrList = (str, type) => {
   const dictList = {
     M: '修改',
     D: '删除',
-    A: '新增'
+    A: '新增',
+    R: '重命名'
   }
   let result = {}
   arr.forEach(item => {
     let str = item[0]
     if (!result[dictList[item[0]]]) result[dictList[item[0]]] = []
-    result[dictList[item[0]]].push(item.split('\t')[1])
+    if (item[0] === 'R') result[dictList[item[0]]].push(`${item.split('\t')[1]} -> ${item.split('\t')[2]}`)
+    else result[dictList[item[0]]].push(item.split('\t')[1])
   })
   return result
 }
