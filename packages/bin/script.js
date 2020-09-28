@@ -42,7 +42,6 @@ async function nextInquirer(npmVersion, versionObj) {
     .then(async (answers) => {
       if (answers['choice publish'] && answers['choice publish'].length > 0) {
         const { beforePublishHook } = getConf().get()
-        console.log(beforePublishHook.trim().length)
         if (typeof beforePublishHook === 'string' && beforePublishHook.trim().length > 0 && beforePublishHook !== "''") {
           console.log(
             `\n执行beforePublishHook: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`.red
