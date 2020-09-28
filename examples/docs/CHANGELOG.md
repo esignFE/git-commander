@@ -1,3 +1,22 @@
+## command-git v0.1.9 (2020-09-28)
+
+### Build
+* **package.json:** command-bin依赖升级 ([8ffbce2](asdasd/commit/8ffbce2))
+* **package-lock.json:** command-bin依赖升级 ([8ffbce2](asdasd/commit/8ffbce2))
+
+
+## command-publish v0.0.11 (2020-09-28)
+
+### Bug Fixes
+* **publish.js:**  添加try...catch ([37bc760](asdasd/commit/37bc760))
+
+
+## command-bin v0.1.11 (2020-09-28)
+
+### Bug Fixes
+* **script.js:**  删除多余console.log ([af7e019](asdasd/commit/af7e019))
+
+
 ## command-git v0.1.8 (2020-09-28)
 
 ### Bug Fixes
