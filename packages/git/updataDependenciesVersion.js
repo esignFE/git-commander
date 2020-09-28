@@ -6,7 +6,7 @@ const {
   findPackages,
 } = require('command-common/findPackages.js')
 const { getConf } = require('command-bin/init.js')
-const { gitCommitUrl } = getConf().get()
+const { gitCommitUrl, autoUpdataDependencies } = getConf().get()
 
 function gitTask(command, path) {
   return new Promise(async (resolve, reject) => {
@@ -70,6 +70,7 @@ async function handle(versionChangeInfo) {
         commitMessagePrefix: `${package}_v${curVersion}`,
         commitMessageSuffix: '依赖升级',
       }
+      if (!autoUpdataDependencies) continue
       const allPackages = findPackages()
       for (const {
         name,
@@ -199,7 +200,7 @@ async function updataDependenciesVersion(result) {
           targetCommitInfoItem.commitMessage = `${
             targetCommitInfoItem.commitMessage
           }${
-            targetCommitInfoItem.commitMessage ? ',' : ''
+            targetCommitInfoItem.commitMessage ? ' ,' : ''
           }${depPackageNames}${commitMessageSuffix}`
         }
       })
