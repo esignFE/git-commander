@@ -286,16 +286,16 @@ async function choiceChangeLog() {
         message: '是否生成changelog',
         default: true,
       },
-      {
-        type: 'confirm',
-        name: 'createChangeLogOption',
-        message:
-          '是否只生成上次commit之后的变动,否则生成所有commit的Change log',
-        default: true,
-        when: function (val) {
-          return val['createChangeLog']
-        },
-      },
+      // {
+      //   type: 'confirm',
+      //   name: 'createChangeLogOption',
+      //   message:
+      //     '是否只生成上次commit之后的变动,否则生成所有commit的Change log',
+      //   default: true,
+      //   when: function (val) {
+      //     return val['createChangeLog']
+      //   },
+      // },
     ])
     .then((answers) => {
       if (answers['createChangeLog']) {
