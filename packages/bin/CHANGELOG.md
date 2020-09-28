@@ -1,3 +1,8 @@
+## command-bin v0.1.7 (2020-09-28)
+
+### Bug Fixes
+* **script.js:**  发布相关hook注入 ([7673846](asdasd/commit/7673846))
+
 ## command-bin v0.1.6 (2020-09-28)
 
 ### Features
