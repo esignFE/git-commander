@@ -41,6 +41,20 @@ async function nextInquirer(npmVersion, versionObj) {
     ])
     .then(async (answers) => {
       if (answers['choice publish'] && answers['choice publish'].length > 0) {
+        const { beforePublishHook } = getConf().get()
+        console.log(beforePublishHook.trim().length)
+        if (typeof beforePublishHook === 'string' && beforePublishHook.trim().length > 0 && beforePublishHook !== "''") {
+          console.log(
+            `\n执行beforePublishHook: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`.red
+          )
+          shell.exec(beforePublishHook, {
+            cwd: shell.pwd().toString(),
+          })
+          console.log(
+            `\nbeforePublishHook执行结束: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`
+              .green
+          )
+        }
         if (answers['choice publish'].includes('All')) {
           await publish(publishPackages.slice(1), packages)
         } else {
@@ -110,20 +124,6 @@ init().then((status) => {
       }
 
       if (answers['choice operate'].includes('npm publish')) {
-        const { beforePublishHook } = getConf().get()
-        console.log(beforePublishHook.trim().length)
-        if (typeof beforePublishHook === 'string' && beforePublishHook.trim().length > 0 && beforePublishHook !== "''") {
-          console.log(
-            `\n执行beforePublishHook: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`.red
-          )
-          shell.exec(beforePublishHook, {
-            cwd: shell.pwd().toString(),
-          })
-          console.log(
-            `\nbeforePublishHook执行结束: ${beforePublishHook}, 当前路径: ${shell.pwd()}\n`
-              .green
-          )
-        }
         let npmVersion = []
         let curPackages = findPackages()
         let num = 0

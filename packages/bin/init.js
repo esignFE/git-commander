@@ -32,6 +32,9 @@ function init() {
     }
     if (program.initConf) {
       await inquirerTask(conf)
+      console.log(`配置文件路径：${conf.path}\n`.green)
+
+      return resolve(false)
     } else {
       if (Object.keys(conf.get()).length === 0) {
         console.log('未找到配置文件, 需要初始化'.red)
@@ -39,8 +42,7 @@ function init() {
         await inquirerTask(conf)
       }
     }
-    console.log(`配置文件路径：${conf.path}\n`.green)
-
+    
     return resolve(true)
   })
 }
