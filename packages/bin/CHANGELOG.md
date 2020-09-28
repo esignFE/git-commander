@@ -1,3 +1,9 @@
+## command-bin v0.1.10 (2020-09-28)
+
+### Bug Fixes
+* **init.js:**  修改发布hook的注入位置 ([a709605](asdasd/commit/a709605))
+* **script.js:**  修改发布hook的注入位置 ([a709605](asdasd/commit/a709605))
+
 ## command-bin v0.1.9 (2020-09-28)
 
 ### Build
