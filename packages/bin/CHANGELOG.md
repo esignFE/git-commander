@@ -1,3 +1,8 @@
+## command-bin v0.1.8 (2020-09-28)
+
+### Bug Fixes
+* **script.js:**  hook ([5c21a8b](asdasd/commit/5c21a8b))
+
 ## command-bin v0.1.7 (2020-09-28)
 
 ### Bug Fixes
