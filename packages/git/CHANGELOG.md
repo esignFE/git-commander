@@ -1,3 +1,15 @@
+## command-git v0.1.4 (2020-09-28)
+
+### Features
+* **git.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+* **gitDiff.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+* **package.json:**  模块更新时升级依赖该模块的项目版本,command-bin依赖升级 ([73ac076](asdasd/commit/73ac076))
+* **updataDependenciesVersion.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+* **updateVersion.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+
+### Chore
+* **CHANGELOG.md:**  changlog记录修改 ([3c25208](asdasd/commit/3c25208))
+
 ## command-git v0.1.3 (2019-12-24)
 
 ### Bug Fixes
