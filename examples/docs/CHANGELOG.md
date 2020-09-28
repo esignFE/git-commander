@@ -1,3 +1,15 @@
+## command-git v0.1.5 (2020-09-28)
+
+### Bug Fixes
+* **updataDependenciesVersion.js:**  模块更新hook注入 ([21e0ce4](asdasd/commit/21e0ce4))
+
+
+## command-bin v0.1.7 (2020-09-28)
+
+### Bug Fixes
+* **script.js:**  发布相关hook注入 ([7673846](asdasd/commit/7673846))
+
+
 ## command-common v0.0.6 (2020-09-28)
 
 ### Features
