@@ -10,6 +10,8 @@
     "command-common": "^0.0.5",
     "command-publish": "^0.0.10",
     "colors": "^1.3.3",
+    "commander": "^6.1.0",
+    "configstore": "^5.0.1",
     "commitizen-promise": "^3.2.0",
     "inquirer": "^6.5.0",
     "shelljs": "^0.8.3",
