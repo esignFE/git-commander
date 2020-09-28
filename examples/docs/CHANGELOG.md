@@ -1,3 +1,16 @@
+## command-git v0.1.8 (2020-09-28)
+
+### Bug Fixes
+* **updataDependenciesVersion.js:**  添加变量用于生成提示 ([a4fd643](asdasd/commit/a4fd643))
+
+
+## command-bin v0.1.10 (2020-09-28)
+
+### Bug Fixes
+* **init.js:**  修改发布hook的注入位置 ([a709605](asdasd/commit/a709605))
+* **script.js:**  修改发布hook的注入位置 ([a709605](asdasd/commit/a709605))
+
+
 ## command-bin v0.1.9 (2020-09-28)
 
 ### Build
