@@ -1,3 +1,8 @@
+## command-git v0.1.7 (2020-09-28)
+
+### Bug Fixes
+* **updateVersion.js:**  changelog生成提示修改 ([fac1069](asdasd/commit/fac1069))
+
 ## command-git v0.1.6 (2020-09-28)
 
 ### Build
