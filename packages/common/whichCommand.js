@@ -1,15 +1,16 @@
 const colors = require('colors')
 const shell = require('shelljs')
 const installPackage = require('./installPackage.js')
-
+whichCommand('where')
 function whichCommand(command, options) {
   let result = shell.which(command)
   if (result === null) {
-    if (command === 'conventional-recommended-bump') {
-      installPackage([{ package: command, options }])
-    } else installPackage([{ package: 'conventional-changelog-cli', options }])
+    if (command === 'conventional-changelog') installPackage([{ package: 'conventional-changelog-cli', options }])
+    else installPackage([{ package: command, options }])
+    
     return false
   }
+  
   return true
 }
 

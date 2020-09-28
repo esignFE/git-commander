@@ -5,7 +5,7 @@ function getPackageJson(path) {
   return JSON.parse(_packageJson)
 }
 
-module.exports = function findPackages(curPackage) {
+function findPackages(curPackage) {
   let packages = []
 
   if (!curPackage) {
@@ -20,7 +20,9 @@ module.exports = function findPackages(curPackage) {
             name: packageJson.name,
             curVersion: packageJson.version,
             path,
-            folderName: item
+            folderName: item,
+            dependencies: packageJson.dependencies,
+            peerDependencies: packageJson.peerDependencies,
           })
       }
     })
@@ -34,4 +36,9 @@ module.exports = function findPackages(curPackage) {
     }
   }
   return packages
+}
+
+module.exports = {
+  getPackageJson,
+  findPackages
 }
