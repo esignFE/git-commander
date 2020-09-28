@@ -1,3 +1,16 @@
+## command-bin v0.1.9 (2020-09-28)
+
+### Build
+* **package.json:** command-git依赖升级 ([91e9376](asdasd/commit/91e9376))
+* **package-lock.json:** command-git依赖升级 ([91e9376](asdasd/commit/91e9376))
+
+
+## command-git v0.1.7 (2020-09-28)
+
+### Bug Fixes
+* **updateVersion.js:**  changelog生成提示修改 ([fac1069](asdasd/commit/fac1069))
+
+
 ## command-git v0.1.6 (2020-09-28)
 
 ### Build
