@@ -1,3 +1,31 @@
+## command-common v0.0.6 (2020-09-28)
+
+### Features
+* **findPackages.js:**  公共方法修改 ([f2121e4](asdasd/commit/f2121e4))
+* **whichCommand.js:**  公共方法修改 ([f2121e4](asdasd/commit/f2121e4))
+
+
+## command-bin v0.1.6 (2020-09-28)
+
+### Features
+* **init.js:**  添加执行过程中的hook ([d7a4b0f](asdasd/commit/d7a4b0f))
+* **package.json:**  添加执行过程中的hook,command-git, command-common 依赖升级 ([d7a4b0f](asdasd/commit/d7a4b0f))
+* **script.js:**  添加执行过程中的hook ([d7a4b0f](asdasd/commit/d7a4b0f))
+
+
+## command-git v0.1.4 (2020-09-28)
+
+### Features
+* **git.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+* **gitDiff.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+* **package.json:**  模块更新时升级依赖该模块的项目版本,command-bin依赖升级 ([73ac076](asdasd/commit/73ac076))
+* **updataDependenciesVersion.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+* **updateVersion.js:**  模块更新时升级依赖该模块的项目版本 ([73ac076](asdasd/commit/73ac076))
+
+### Chore
+* **CHANGELOG.md:**  changlog记录修改 ([3c25208](asdasd/commit/3c25208))
+
+
 ## command-bin v0.1.5 (2019-12-24)
 
 ### Bug Fixes
