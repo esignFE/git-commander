@@ -1,3 +1,10 @@
+## command-bin v0.1.6 (2020-09-28)
+
+### Features
+* **init.js:**  添加执行过程中的hook ([d7a4b0f](asdasd/commit/d7a4b0f))
+* **package.json:**  添加执行过程中的hook,command-git, command-common 依赖升级 ([d7a4b0f](asdasd/commit/d7a4b0f))
+* **script.js:**  添加执行过程中的hook ([d7a4b0f](asdasd/commit/d7a4b0f))
+
 ## command-bin v0.1.5 (2019-12-24)
 
 ### Bug Fixes
