@@ -1,3 +1,9 @@
+## command-git v0.1.6 (2020-09-28)
+
+### Build
+* **package.json:** command-bin依赖升级 ([cd1112f](asdasd/commit/cd1112f))
+* **package-lock.json:** command-bin依赖升级 ([cd1112f](asdasd/commit/cd1112f))
+
 ## command-git v0.1.5 (2020-09-28)
 
 ### Bug Fixes
