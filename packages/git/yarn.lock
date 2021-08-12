@@ -178,35 +178,44 @@ colors@^1.3.3:
   resolved "http://118.31.173.195:4873/colors/-/colors-1.4.0.tgz#c50491479d4c1bdaed2c9ced32cf7c7dc2360f78"
   integrity sha512-a+UqTh4kgZg/SlGvfbzDHpgRu7AAQOmmqRHJnxhRZICKFUT91brVhNNt58CMWU9PsBbv3PDCZUHbVxuDiH2mtA==
 
-command-bin@0.1.5:
-  version "0.1.5"
-  resolved "http://118.31.173.195:4873/command-bin/-/command-bin-0.1.5.tgz#58395fa788522ab74ea27b54117817bd84f46662"
-  integrity sha512-iu1cPHZGZlnvSHHKMupVe5DJcTzFyXsLYgsAzXg9rA0UM3oUpP9J1NRC3UffaeYJzs/RJe1bKG9H77UBjqFffA==
+command-bin@0.1.11:
+  version "0.1.11"
+  resolved "https://registry.yarnpkg.com/command-bin/-/command-bin-0.1.11.tgz#2df3b8986bb586f159583b1113cd5f6cb99c0ad3"
+  integrity sha512-Z6eIi1c2K0MpM+oXVsrxiocPXUHx8ypr80mnIO0U23IqBZ27MvXRVCAoq9MU2Q6Jg38P6F3bbpSaMpQep8Ii6A==
   dependencies:
     colors "^1.3.3"
-    command-common "^0.0.5"
-    command-git "^0.1.3"
-    command-publish "^0.0.10"
+    command-common "0.0.6"
+    command-git "0.1.9"
+    command-publish "0.0.11"
+    commander "^6.1.0"
     commitizen-promise "^3.2.0"
+    configstore "^5.0.1"
     inquirer "^6.5.0"
     shelljs "^0.8.3"
     silly-datetime "^0.1.2"
     single-line-log "^1.1.2"
 
-command-common@^0.0.5:
-  version "0.0.5"
-  resolved "http://118.31.173.195:4873/command-common/-/command-common-0.0.5.tgz#ae39a5d7b1e6c859e79f15a651769764a44754e2"
-  integrity sha512-oEYEq7Pk7ef8sJxXQ7e7qJb2VQWYeSv/3kwFBd8N5KCEzeaqpoKXhQXFzu8av+5V22R5z2rVklGscX6EX6Jddg==
+command-common@0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/command-common/-/command-common-0.0.6.tgz#1c4c381619ceb1bb78394bf29020f6080f5dab07"
+  integrity sha512-jsMZa2GB+hr+ZvovphmGnTdOlDsG1Fcc2sYMr9Rwxe4rsV3sALpHkzul84cnXOUe0yRp8dVdja0tDNOxIQLYdQ==
 
-command-git@^0.1.3:
-  version "0.1.3"
-  resolved "http://118.31.173.195:4873/command-git/-/command-git-0.1.3.tgz#745614b64441370d1581d0ae4432f3806cd86429"
-  integrity sha512-fGLNr8qWfWSQtq3f/P8JCZ3L6e7CzxkGbR5FUW2R9IWu4Oz1kH1lD5p/Swr7i4zia/eGLHg9cc/O/C+zabMhiA==
+command-git@0.1.9:
+  version "0.1.9"
+  resolved "https://registry.yarnpkg.com/command-git/-/command-git-0.1.9.tgz#9eff79618a7f06de4dbcb982a074bd74060cffaf"
+  integrity sha512-+EmSRwl8mqmVLPMiDYY3TJYnBU+vJVs2SrOTWkyp4FfaB9SZ/3kgv6A/ETKP3HhklL92k/GiuC85lVcmPNQ62Q==
+  dependencies:
+    command-bin "0.1.11"
 
-command-publish@^0.0.10:
-  version "0.0.10"
-  resolved "http://118.31.173.195:4873/command-publish/-/command-publish-0.0.10.tgz#4bbdc7fbe99d49df429e736fe5fa29117d9a8a83"
-  integrity sha512-/FnwkSYw/ENfdAMTvR30CbveCWDZAuX9d9zwEUbKnD41SCtWypFRtA/c1q4QTUNrpNvGojiYjMJGMcVN98krtw==
+command-publish@0.0.11:
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/command-publish/-/command-publish-0.0.11.tgz#8a5a492e51aa598cb16e1da6b2673dbd6bf23938"
+  integrity sha512-8DRD188Wiw5jdNxIdfQpZFUndnsXFU+cxucERQmKIy5i1k3OQ9h7N4hyTviKOxx/XAcnpXrZQKKagJwn1Xfv2g==
+
+commander@^6.1.0:
+  version "6.2.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
+  integrity sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==
 
 commitizen-promise@^3.2.0:
   version "3.2.0"
@@ -245,6 +254,18 @@ concat-stream@^1.4.7:
     readable-stream "^2.2.2"
     typedarray "^0.0.6"
 
+configstore@^5.0.1:
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/configstore/-/configstore-5.0.1.tgz#d365021b5df4b98cdd187d6a3b0e3f6a7cc5ed96"
+  integrity sha512-aMKprgk5YhBNyH25hj8wGt2+D52Sw1DRRIzqBwLp2Ya9mFmY8KPvvtvmna8SxVR9JMZ4kzMD68N22vlaRpkeFA==
+  dependencies:
+    dot-prop "^5.2.0"
+    graceful-fs "^4.1.2"
+    make-dir "^3.0.0"
+    unique-string "^2.0.0"
+    write-file-atomic "^3.0.0"
+    xdg-basedir "^4.0.0"
+
 conventional-commit-types@^2.0.0:
   version "2.3.0"
   resolved "http://118.31.173.195:4873/conventional-commit-types/-/conventional-commit-types-2.3.0.tgz#bc3c8ebba0a9e4b3ecc548f1d0674e251ab8be22"
@@ -259,6 +280,11 @@ core-util-is@~1.0.0:
   version "1.0.2"
   resolved "http://118.31.173.195:4873/core-util-is/-/core-util-is-1.0.2.tgz#b5fd54220aa2bc5ab57aab7140c940754503c1a7"
   integrity sha1-tf1UIgqivFq1eqtxQMlAdUUDwac=
+
+crypto-random-string@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
+  integrity sha512-v1plID3y9r/lPhviJ1wrXpLeyUIGAZ2SHNYTEapm7/8A9nLPoyvVp3RK/EPFqn5kEznyWgYZNsRtYYIWbuG8KA==
 
 cz-conventional-changelog@2.1.0:
   version "2.1.0"
@@ -289,6 +315,13 @@ detect-indent@4.0.0:
   integrity sha1-920GQ1LN9Docts5hnE7jqUdd4gg=
   dependencies:
     repeating "^2.0.0"
+
+dot-prop@^5.2.0:
+  version "5.3.0"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.3.0.tgz#90ccce708cd9cd82cc4dc8c3ddd9abdd55b20e88"
+  integrity sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q==
+  dependencies:
+    is-obj "^2.0.0"
 
 encoding@^0.1.11:
   version "0.1.13"
@@ -547,6 +580,11 @@ iconv-lite@^0.6.2:
   dependencies:
     safer-buffer ">= 2.1.2 < 3.0.0"
 
+imurmurhash@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/imurmurhash/-/imurmurhash-0.1.4.tgz#9218b9b2b928a238b13dc4fb6b6d576f231453ea"
+  integrity sha1-khi5srkoojixPcT7a21XbyMUU+o=
+
 inflight@^1.0.4:
   version "1.0.6"
   resolved "http://118.31.173.195:4873/inflight/-/inflight-1.0.6.tgz#49bd6331d7d02d0c09bc910a1075ba8165b56df9"
@@ -691,6 +729,11 @@ is-number@^4.0.0:
   resolved "http://118.31.173.195:4873/is-number/-/is-number-4.0.0.tgz#0026e37f5454d73e356dfe6564699867c6a7f0ff"
   integrity sha512-rSklcAIlf1OmFdyAqbnWTLVelsQ58uvZ66S/ZyawjWqIviTWCjg2PzVGw8WUA+nNuPTqb4wgA+NszrJ+08LlgQ==
 
+is-obj@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-2.0.0.tgz#473fb05d973705e3fd9620545018ca8e22ef4982"
+  integrity sha512-drqDG3cbczxxEJRoOXcOjtdp1J/lyp1mNn0xaznRs8+muBhgQcrnbspox5X5fOw0HnMnbfDzvnEMEtqDEJEo8w==
+
 is-posix-bracket@^0.1.0:
   version "0.1.1"
   resolved "http://118.31.173.195:4873/is-posix-bracket/-/is-posix-bracket-0.1.1.tgz#3334dc79774368e92f016e6fbc0a88f5cd6e6bc4"
@@ -705,6 +748,11 @@ is-stream@^1.0.1:
   version "1.1.0"
   resolved "http://118.31.173.195:4873/is-stream/-/is-stream-1.1.0.tgz#12d4a3dd4e68e0b79ceb8dbc84173ae80d91ca44"
   integrity sha1-EtSj3U5o4Lec6428hBc66A2RykQ=
+
+is-typedarray@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
+  integrity sha1-5HnICFjfDBsR3dppQPlgEfzaSpo=
 
 is-windows@^0.2.0:
   version "0.2.0"
@@ -773,6 +821,13 @@ longest@^1.0.1:
   version "1.0.1"
   resolved "http://118.31.173.195:4873/longest/-/longest-1.0.1.tgz#30a0b2da38f73770e8294a0d22e6625ed77d0097"
   integrity sha1-MKCy2jj3N3DoKUoNIuZiXtd9AJc=
+
+make-dir@^3.0.0:
+  version "3.1.0"
+  resolved "https://registry.yarnpkg.com/make-dir/-/make-dir-3.1.0.tgz#415e967046b3a7f1d185277d84aa58203726a13f"
+  integrity sha512-g3FeP20LNwhALb/6Cz6Dd4F2ngze0jz7tbzrD2wAV+o9FeNHe4rL+yK2md0J/fiSf1sa1ADhXqi5+oVwOM/eGw==
+  dependencies:
+    semver "^6.0.0"
 
 math-random@^1.0.1:
   version "1.0.4"
@@ -945,9 +1000,9 @@ path-is-absolute@^1.0.0:
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "http://118.31.173.195:4873/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 pinkie-promise@^2.0.0:
   version "2.0.1"
@@ -1102,6 +1157,11 @@ safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   resolved "http://118.31.173.195:4873/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
+semver@^6.0.0:
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-6.3.0.tgz#ee0a64c8af5e8ceea67687b133761e1becbd1d3d"
+  integrity sha512-b39TBaTSfV6yBrapU89p5fKekE2m/NwnDocOVruQFS1/veMgdzuPcnOM34M6CwxW8jH/lxEa5rBoDeUwu5HHTw==
+
 shelljs@0.7.6:
   version "0.7.6"
   resolved "http://118.31.173.195:4873/shelljs/-/shelljs-0.7.6.tgz#379cccfb56b91c8601e4793356eb5382924de9ad"
@@ -1231,10 +1291,24 @@ tslib@^1.9.0:
   resolved "http://118.31.173.195:4873/tslib/-/tslib-1.13.0.tgz#c881e13cc7015894ed914862d276436fa9a47043"
   integrity sha512-i/6DQjL8Xf3be4K/E6Wgpekn5Qasl1usyw++dAA35Ue5orEn65VIxOA+YvNNl9HV3qv70T7CNwjODHZrLwvd1Q==
 
+typedarray-to-buffer@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/typedarray-to-buffer/-/typedarray-to-buffer-3.1.5.tgz#a97ee7a9ff42691b9f783ff1bc5112fe3fca9080"
+  integrity sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==
+  dependencies:
+    is-typedarray "^1.0.0"
+
 typedarray@^0.0.6:
   version "0.0.6"
   resolved "http://118.31.173.195:4873/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+unique-string@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/unique-string/-/unique-string-2.0.0.tgz#39c6451f81afb2749de2b233e3f7c5e8843bd89d"
+  integrity sha512-uNaeirEPvpZWSgzwsPGtU2zVSTrn/8L5q/IexZmH0eH6SA73CmAA5U4GwORTxQAZs95TAXLNqeLoPPNO5gZfWg==
+  dependencies:
+    crypto-random-string "^2.0.0"
 
 util-deprecate@~1.0.1:
   version "1.0.2"
@@ -1257,3 +1331,18 @@ wrappy@1:
   version "1.0.2"
   resolved "http://118.31.173.195:4873/wrappy/-/wrappy-1.0.2.tgz#b5243d8f3ec1aa35f1364605bc0d1036e30ab69f"
   integrity sha1-tSQ9jz7BqjXxNkYFvA0QNuMKtp8=
+
+write-file-atomic@^3.0.0:
+  version "3.0.3"
+  resolved "https://registry.yarnpkg.com/write-file-atomic/-/write-file-atomic-3.0.3.tgz#56bd5c5a5c70481cd19c571bd39ab965a5de56e8"
+  integrity sha512-AvHcyZ5JnSfq3ioSyjrBkH9yW4m7Ayk8/9My/DD9onKeu/94fwrMocemO2QAJFAlnnDN+ZDS+ZjAR5ua1/PV/Q==
+  dependencies:
+    imurmurhash "^0.1.4"
+    is-typedarray "^1.0.0"
+    signal-exit "^3.0.2"
+    typedarray-to-buffer "^3.1.5"
+
+xdg-basedir@^4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/xdg-basedir/-/xdg-basedir-4.0.0.tgz#4bc8d9984403696225ef83a1573cbbcb4e79db13"
+  integrity sha512-PSNhEJDejZYV7h50BohL09Er9VaIefr2LMAf3OEmpCkjOi34eYyQYAXUTjEQtZJTKcF0E2UKTh+osDLsgNim9Q==
