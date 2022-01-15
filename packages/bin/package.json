@@ -14,7 +14,7 @@
     "configstore": "^5.0.1",
     "commitizen-promise": "^3.2.0",
     "inquirer": "^6.5.0",
-    "shelljs": "^0.8.3",
+    "shelljs": "^0.8.5",
     "silly-datetime": "^0.1.2",
     "single-line-log": "^1.1.2"
   },
